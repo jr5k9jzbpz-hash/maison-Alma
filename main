@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAISON ALMA | Peluquería</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=DM+Sans&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8f6f2;color:#292722;font-family:"DM Sans",Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{width:100%;display:block;object-fit:cover}
+.aviso{background:#292722;color:white;text-align:center;padding:8px;font-size:10px;letter-spacing:2px}
+header{position:sticky;top:0;background:#f8f6f2;border-bottom:1px solid #e6e1d9;z-index:5}
+nav{max-width:1100px;margin:auto;padding:20px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font-family:"Playfair Display",Georgia,serif;font-size:25px;letter-spacing:3px}
+.logo small{display:block;text-align:center;font-family:Arial,sans-serif;font-size:8px;letter-spacing:3px}
+.links{display:flex;align-items:center;gap:22px;font-size:12px}
+.boton{display:inline-block;background:#292722;color:white;padding:13px 22px;font-size:11px;letter-spacing:1px;border:1px solid #292722}
+.boton:hover{background:transparent;color:#292722}
+.portada{display:grid;grid-template-columns:1fr 1fr;min-height:550px}
+.portada-texto{padding:70px 10%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.etiqueta{font-size:10px;letter-spacing:3px;color:#a38b73;text-transform:uppercase}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:400;line-height:1.2}
+h1{font-size:clamp(43px,5vw,70px);margin:22px 0}
+h1 em,h2 em{color:#a38b73}
+.portada-texto p{color:#77736c;font-size:14px;margin-bottom:25px;max-width:380px}
+.portada-imagen{min-height:450px}
+.portada-imagen img{height:100%;min-height:450px}
+.botones{display:flex;gap:12px;flex-wrap:wrap}
+.secundario{background:transparent;color:#292722}
+.franja{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:22px;border-bottom:1px solid #e6e1d9;color:#77736c;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+section{padding:85px 25px}
+.contenedor{max-width:1080px;margin:auto}
+.titulo{text-align:center;max-width:600px;margin:0 auto 45px}
+.titulo h2,.sobre h2,.reserva h2{font-size:clamp(35px,4vw,50px);margin:15px 0}
+.titulo p,.sobre p{color:#77736c;font-size:13px}
+.servicios{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.servicio{background:#fffefa;border:1px solid #e6e1d9;padding:27px}
+.servicio span{font-size:10px;letter-spacing:2px;color:#a38b73}
+.servicio h3{font-size:24px;margin:18px 0 10px}
+.servicio p{font-size:12px;color:#77736c;min-height:45px}
+.precio{border-top:1px solid #e6e1d9;margin-top:18px;padding-top:14px;font-size:13px;display:flex;justify-content:space-between}
+.precio strong{font-size:16px;font-weight:400}
+.sobre{background:#eee8df}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}
+.sobre img{height:450px}
+.sobre p{margin:20px 0}
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.galeria img{height:320px}
+.reserva{background:#fffefa}
+.reserva-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.reserva p{font-size:13px;color:#77736c;margin-bottom:20px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.campo{display:flex;flex-direction:column;gap:7px}
+.campo.completo{grid-column:1/-1}
+label{font-size:10px;letter-spacing:1px;text-transform:uppercase}
+input,select,textarea{width:100%;padding:13px;background:#f8f6f2;border:1px solid #e6e1d9;font:inherit;font-size:13px}
+textarea{min-height:90px;resize:vertical}
+form button{cursor:pointer;font:inherit}
+.nota{font-size:11px;color:#77736c;grid-column:1/-1}
+.cierre{text-align:center;background:#e8dfd4}
+.cierre h2{font-size:clamp(35px,5vw,52px);margin:15px 0 25px}
+footer{background:#292722;color:#f8f6f2;padding:30px;text-align:center}
+footer p{font-size:11px;color:#d1cbc2;margin-top:8px}
+
+@media(max-width:760px){
+ nav{padding:15px 20px}
+ .menu-movil{display:block}
+ .links{display:none;position:absolute;top:100%;left:0;right:0;background:#f8f6f2;padding:25px;flex-direction:column;border-bottom:1px solid #e6e1d9}
+ .links.abierto{display:flex}
+ .links .boton{width:100%;text-align:center}
+ .portada{grid-template-columns:1fr}
+ .portada-texto{padding:60px 25px 45px}
+ .portada-imagen img{min-height:350px;max-height:440px}
+ .franja{gap:15px 25px}
+ section{padding:65px 20px}
+ .servicios{grid-template-columns:1fr 1fr}
+ .sobre-grid,.reserva-grid{grid-template-columns:1fr;gap:35px}
+ .sobre img{height:350px}
+ .galeria{grid-template-columns:1fr 1fr}
+ .galeria img{height:230px}
+ .galeria img:last-child{display:none}
+}
+@media(max-width:460px){
+ .servicios{grid-template-columns:1fr}
+ .servicio p{min-height:0}
+ .botones{flex-direction:column;width:100%}
+ .botones .boton{text-align:center}
+ form{grid-template-columns:1fr}
+ .campo.completo,.nota{grid-column:1}
+}
+</style>
+</head>
+
+<body>
+<div class="aviso">UN ESPACIO PARA TI · UN ESTILO QUE HABLA DE TI</div>
+
+<header>
+<nav>
+<a href="#inicio" class="logo">MAISON ALMA<small>HAIR · BEAUTY · CARE</small></a>
+<button class="menu-movil" id="menuBoton" aria-label="Abrir menú" aria-expanded="false">☰</button>
+<div class="links" id="enlaces">
+<a href="#servicios">Servicios</a>
+<a href="#sobre">Filosofía</a>
+<a href="#galeria">Galería</a>
+<a href="#contacto">Contacto</a>
+<a href="#reservas" class="boton">Solicitar cita</a>
+</div>
+</nav>
+</header>
+
+<main>
+<section class="portada" id="inicio" style="padding-top:0;padding-bottom:0">
+<div class="portada-texto">
+<span class="etiqueta">Belleza sin artificios</span>
+<h1>Tu cabello,<br><em>tu esencia.</em></h1>
+<p>Un cuidado pensado para ti. Descubre una forma más personal de vivir la belleza, con atención al detalle y estilo propio.</p>
+<div class="botones">
+<a href="#reservas" class="boton">Solicitar cita ↗</a>
+<a href="#servicios" class="boton secundario">Ver servicios</a>
+</div>
+</div>
+<div class="portada-imagen">
+<img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Interior de una peluquería moderna">
+</div>
+</section>
+
+<div class="franja">
+<span>Atención personalizada</span>
+<span>Cuidado capilar</span>
+<span>Estilo natural</span>
+</div>
+
+<section id="servicios">
+<div class="contenedor">
+<div class="titulo">
+<span class="etiqueta">Nuestros servicios</span>
+<h2>Menos rutina.<br><em>Más tú.</em></h2>
+<p>Servicios personalizados para cuidar tu cabello y encontrar el estilo que mejor encaja contigo.</p>
+</div>
+
+<div class="servicios">
+<article class="servicio">
+<span>01 / CORTE</span><h3>Corte & forma</h3>
+<p>Cortes personalizados que respetan tu textura y tu estilo.</p>
+<div class="precio"><span>Desde</span><strong>25 €</strong></div>
+</article>
+<article class="servicio">
+<span>02 / COLOR</span><h3>Coloración</h3>
+<p>Color adaptado a ti, con un acabado natural y luminoso.</p>
+<div class="precio"><span>Desde</span><strong>45 €</strong></div>
+</article>
+<article class="servicio">
+<span>03 / LUZ</span><h3>Mechas & balayage</h3>
+<p>Dimensión, luz y matices para realzar tu cabello.</p>
+<div class="precio"><span>Desde</span><strong>65 €</strong></div>
+</article>
+<article class="servicio">
+<span>04 / CUIDADO</span><h3>Tratamiento capilar</h3>
+<p>Un extra de cuidado adaptado a las necesidades de tu pelo.</p>
+<div class="precio"><span>Desde</span><strong>30 €</strong></div>
+</article>
+<article class="servicio">
+<span>05 / ESTILO</span><h3>Peinado</h3>
+<p>Acabados cuidados para tu día a día o una ocasión especial.</p>
+<div class="precio"><span>Desde</span><strong>20 €</strong></div>
+</article>
+<article class="servicio">
+<span>06 / EXPERIENCIA</span><h3>Ritual completo</h3>
+<p>Una experiencia personalizada de cuidado y estilismo.</p>
+<div class="precio"><span>Consultar</span><strong>A medida</strong></div>
+</article>
+</div>
+<p style="text-align:center;font-size:10px;color:#77736c;margin-top:20px">Precios de ejemplo para el portfolio. Pendientes de confirmar.</p>
+</div>
+</section>
+
+<section class="sobre" id="sobre">
+<div class="contenedor sobre-grid">
+<img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=85" alt="Espacio de trabajo de peluquería" loading="lazy">
+<div>
+<span class="etiqueta">Nuestra filosofía</span>
+<h2>La belleza está en <em>los detalles.</em></h2>
+<p>En MAISON ALMA creemos que cada persona tiene su propio estilo. Nuestro objetivo es ofrecer una experiencia tranquila, personal y centrada en el cuidado de tu cabello.</p>
+<p>Desde un corte sencillo hasta un cambio de color, cada servicio empieza escuchando lo que buscas.</p>
+<a href="#reservas" class="boton">Hablemos de tu cita</a>
+</div>
+</div>
+</section>
+
+<section id="galeria">
+<div class="contenedor">
+<div class="titulo">
+<span class="etiqueta">Inspiración</span>
+<h2>Un estilo <em>propio.</em></h2>
+<p>Una selección visual para inspirar tu próximo look.</p>
+</div>
+<div class="galeria">
+<img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=80" alt="Inspiración de peinado" loading="lazy">
+<img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=700&q=80" alt="Cuidado del cabello" loading="lazy">
+<img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=700&q=80" alt="Estilo de peluquería" loading="lazy">
+</div>
+</div>
+</section>
+
+<section class="reserva" id="reservas">
+<div class="contenedor reserva-grid">
+<div>
+<span class="etiqueta">Tu próximo momento</span>
+<h2>¿Hacemos hueco <em>para ti?</em></h2>
+<p>Cuéntanos qué servicio te interesa y qué día te viene bien. Podrás revisar la solicitud antes de enviarla.</p>
+<div style="border-top:1px solid #e6e1d9;padding-top:18px;font-size:12px">
+<strong>Horario</strong><br>
+Horario de ejemplo: lunes a sábado, con cita previa.
+</div>
+</div>
+
+<form id="formulario">
+<div class="campo">
+<label for="nombre">Tu nombre</label>
+<input id="nombre" name="nombre" autocomplete="name" required placeholder="Nombre y apellidos">
+</div>
+<div class="campo">
+<label for="telefono">Teléfono</label>
+<input id="telefono" name="telefono" type="tel" autocomplete="tel" required placeholder="Tu teléfono">
+</div>
+<div class="campo">
+<label for="servicio">Servicio</label>
+<select id="servicio" name="servicio" required>
+<option value="">Elige un servicio</option>
+<option>Corte & forma</option>
+<option>Coloración</option>
+<option>Mechas & balayage</option>
+<option>Tratamiento capilar</option>
+<option>Peinado</option>
+<option>Ritual completo</option>
+</select>
+</div>
+<div class="campo">
+<label for="fecha">Fecha preferida</label>
+<input id="fecha" name="fecha" type="date" required>
+</div>
+<div class="campo completo">
+<label for="mensaje">¿Algo más que debamos saber?</label>
+<textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué tienes en mente (opcional)"></textarea>
+</div>
+<div class="campo completo">
+<button type="submit" class="boton">Preparar solicitud de cita ↗</button>
+</div>
+<p class="nota">Esta demostración no guarda ni envía tus datos todavía. Al configurar el contacto real, conectaremos el formulario a un servicio de reservas.</p>
+<p class="nota" id="estado" role="status" aria-live="polite"></p>
+</form>
+</div>
+</section>
+
+<section class="cierre" id="contacto">
+<span class="etiqueta">MAISON ALMA · HAIR · BEAUTY · CARE</span>
+<h2>Tu esencia,<br><em>en cada detalle.</em></h2>
+<a href="#reservas" class="boton">Solicitar una cita</a>
+</section>
+</main>
+
+<footer>
+<div class="logo">MAISON ALMA</div>
+<p>Proyecto de portfolio · Datos y precios de demostración</p>
+<p>© <span id="anio"></span> MAISON ALMA</p>
+</footer>
+
+<script>
+const menuBoton = document.getElementById("menuBoton");
+const enlaces = document.getElementById("enlaces");
+
+menuBoton.addEventListener("click", () => {
+  const abierto = enlaces.classList.toggle("abierto");
+  menuBoton.setAttribute("aria-expanded", String(abierto));
+  menuBoton.textContent = abierto ? "×" : "☰";
+});
+
+enlaces.querySelectorAll("a").forEach(enlace => {
+  enlace.addEventListener("click", () => {
+    enlaces.classList.remove("abierto");
+    menuBoton.setAttribute("aria-expanded", "false");
+    menuBoton.textContent = "☰";
+  });
+});
+
+const fecha = document.getElementById("fecha");
+const hoy = new Date();
+const fechaLocal = new Date(hoy.getTime() - hoy.getTimezoneOffset() * 60000)
+  .toISOString().split("T")[0];
+fecha.min = fechaLocal;
+
+document.getElementById("anio").textContent = new Date().getFullYear();
+
+document.getElementById("formulario").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const datos = new FormData(this);
+  const resumen = [
+    "SOLICITUD DE CITA — MAISON ALMA",
+    "",
+    "Nombre: " + datos.get("nombre"),
+    "Teléfono: " + datos.get("telefono"),
+    "Servicio: " + datos.get("servicio"),
+    "Fecha preferida: " + datos.get("fecha"),
+    "Mensaje: " + (datos.get("mensaje") || "Sin mensaje adicional"),
+    "",
+    "Esta es una solicitud, no una reserva confirmada."
+  ].join("\n");
+
+  const ventana = window.open("", "_blank");
+  if (!ventana) {
+    document.getElementById("estado").textContent =
+      "Tu navegador ha bloqueado la ventana. Permite las ventanas emergentes para revisar la solicitud.";
+    return;
+  }
+
+  ventana.document.title = "Solicitud de cita — MAISON ALMA";
+  ventana.document.body.style.cssText =
+    "font-family:Arial,sans-serif;white-space:pre-wrap;padding:24px;line-height:1.7;color:#292722";
+  const titulo = ventana.document.createElement("h2");
+  titulo.textContent = "Revisa tu solicitud";
+  const texto = ventana.document.createElement("pre");
+  texto.style.whiteSpace = "pre-wrap";
+  texto.textContent = resumen;
+  const nota = ventana.document.createElement("p");
+  nota.textContent = "Esta solicitud todavía no se ha enviado a la peluquería.";
+  ventana.document.body.append(titulo, texto, nota);
+});
+</script>
+</body>
+</html>
